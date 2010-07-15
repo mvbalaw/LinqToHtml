@@ -1,0 +1,11 @@
+*resharper.user
+build/
+[Bb]in/
+[Oo]bj/
+*.suo
+*.sln.cache
+_ReSharper.*/
+*.user
+dist
+CommonAssemblyInfo.cs
+TestResult.xml

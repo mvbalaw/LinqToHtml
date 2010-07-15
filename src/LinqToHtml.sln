@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToHtml", "LinqToHtml\LinqToHtml.csproj", "{1CF4772C-76D3-4833-B383-253785866946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToHtml.Tests", "LinqToHtml.Tests\LinqToHtml.Tests.csproj", "{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF4772C-76D3-4833-B383-253785866946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF4772C-76D3-4833-B383-253785866946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF4772C-76D3-4833-B383-253785866946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF4772C-76D3-4833-B383-253785866946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
