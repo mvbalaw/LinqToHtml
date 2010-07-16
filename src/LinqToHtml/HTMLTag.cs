@@ -80,5 +80,27 @@ namespace LinqToHtml
 		{
 			get { return _node.Name; }
 		}
+
+		public void MapTo<T>(T destination)
+		{
+			var properties = destination
+				.GetType()
+				.GetProperties()
+				.Where(x => x.CanWrite)
+				.ToDictionary(x => x.Name.ToLower());
+
+			var attributes = Attributes
+				.ToDictionary(x => x.Name.ToLower(), x => x.Value);
+
+			var matches = attributes.Where(x => properties.ContainsKey(x.Key));
+
+			foreach (var match in matches)
+			{
+				var property = properties[match.Key];
+				PropertySetter
+					.GetFor(property.PropertyType)
+					.SetValue(destination, property, match.Value);
+			}
+		}
 	}
 }

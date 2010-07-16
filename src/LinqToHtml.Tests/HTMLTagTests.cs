@@ -300,5 +300,70 @@ namespace LinqToHtml.Tests
 					.First();
 			}
 		}
+
+		[TestFixture]
+		public class When_asked_to_map_a_tag_to_an_object
+		{
+			private const int Age = 55;
+			private const decimal Amount = 121.50m;
+			private const double Average = 2.435d;
+			private const bool Enabled = true;
+			private const string Name = "Bob";
+			private DateTime _date = new DateTime(2010, 7, 16);
+			private HTMLDocument _tag;
+			private Person _target;
+
+			[Test]
+			public void Given_a_tag_and_object_for_which_all_properties_can_be_mapped()
+			{
+				Test.Verify(
+					with_a_tag_having_non_default_attribute_values,
+					with_a_target_object_having_matching_property_names_and_types,
+					when_asked_to_map_the_tag_to_the_target,
+					should_map_all_values
+					);
+			}
+
+			public class Person
+			{
+				public int Age { get; set; }
+				public decimal Amount { get; set; }
+				public double Average { get; set; }
+				public DateTime Date { get; set; }
+				public bool Enabled { get; set; }
+				public string Name { get; set; }
+			}
+
+			private void should_map_all_values()
+			{
+				_target.Age.ShouldBeEqualTo(Age, "failed to map age");
+				_target.Amount.ShouldBeEqualTo(Amount, "failed to map amount");
+				_target.Average.ShouldBeEqualTo(Average, "failed to map average");
+				_target.Date.ShouldBeEqualTo(_date, "failed to map date");
+				_target.Enabled.ShouldBeEqualTo(Enabled, "failed to map enabled");
+				_target.Name.ShouldBeEqualTo(Name, "failed to map name");
+			}
+
+			private void when_asked_to_map_the_tag_to_the_target()
+			{
+				_tag.MapTo(_target);
+			}
+
+			private void with_a_tag_having_non_default_attribute_values()
+			{
+				_tag = HTMLParser.Parse(String.Format("<person name='{0}' enabled='{1}' age='{2}' Amount='{3}' average='{4}' date='{5}' />",
+				                                      Name,
+				                                      Enabled.ToString().ToUpper(),
+				                                      Age,
+				                                      Amount,
+				                                      Average,
+				                                      _date.ToString("MM/dd/yyyy")));
+			}
+
+			private void with_a_target_object_having_matching_property_names_and_types()
+			{
+				_target = new Person();
+			}
+		}
 	}
 }

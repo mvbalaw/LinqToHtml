@@ -8,8 +8,8 @@ A simple utility that lets you use LINQ syntax to query HTML.
             <TITLE>The Title</TITLE>
         </head>
         <body bgcolor='#ffffff'>
-            <H1 id='hello' style='greeting'>Hello</H1>
-            <H2 id='world' style='greeting'>World</H2>
+            <H1 id='hello' style='greeting' tabkey='1'>Hello</H1>
+            <H2 id='world' style='greeting' tabkey='2'>World</H2>
         </body>
     </html>";
 
@@ -63,6 +63,24 @@ A simple utility that lets you use LINQ syntax to query HTML.
         .First()
         .Content
         .ShouldBeEqualTo("World");
+
+mapping
+
+    public class Text
+    {
+        public string Id { get; set; }
+        public int TabKey { get; set; } 
+    }
+    
+    var text = new Text();
+    parsed
+        .DescendantTags
+        .OfType("H1")
+        .First()
+        .MapTo(text);
+
+    text.Id.ShouldBeEqualTo("hello");
+    text.TabKey.ShouldBeEqualTo(1);
         
 ## License        
 

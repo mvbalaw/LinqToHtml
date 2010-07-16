@@ -56,6 +56,7 @@
     <Compile Include="IEnumerableHTMLTagExtensions.cs" />
     <Compile Include="IEnumerableXmlNodeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertySetter.cs" />
     <Compile Include="XmlNodeListExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
