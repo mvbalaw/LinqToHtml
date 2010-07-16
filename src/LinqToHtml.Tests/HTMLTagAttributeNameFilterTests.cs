@@ -195,15 +195,15 @@ namespace LinqToHtml.Tests
 			public void foo()
 			{
 	const string html = @"
-<html>
-	<head>
-		<TITLE>The Title</TITLE>
-	</head>
-	<body bgcolor='#ffffff'>
-		<H1 id='hello' style='greeting'>Hello</H1>
-		<H2 id='world' style='greeting'>World</H2>
-	</body>
-</html>";
+	<html>
+		<head>
+			<TITLE>The Title</TITLE>
+		</head>
+		<body bgcolor='#ffffff'>
+			<H1 id='hello' style='greeting'>Hello</H1>
+			<H2 id='world' style='greeting'>World</H2>
+		</body>
+	</html>";
 
 	var parsed = HTMLParser.Parse(html);
 
