@@ -2,19 +2,16 @@ A simple utility that lets you use LINQ syntax to query HTML.
 
 ## Samples
 
-    const string html = "<html><head><TITLE>The Title</TITLE></head><body>Hello World</body></html>";
-    var parsed = HTMLParser.Parse(html);
-    
-    const string html = @"
-<html>
-    <head>
-        <TITLE>The Title</TITLE>
-    </head>
-    <body bgcolor='#ffffff'>
-        <H1 id='hello' style='greeting'>Hello</H1>
-        <H2 id='world' style='greeting'>World</H2>
-    </body>
-</html>";
+	const string html = @"
+&lt;html>
+	<head>
+		<TITLE>The Title</TITLE>
+	</head>
+	<body bgcolor='#ffffff'>
+		<H1 id='hello' style='greeting'>Hello</H1>
+		<H2 id='world' style='greeting'>World</H2>
+	</body>
+&lt;/html>";
 
     var parsed = HTMLParser.Parse(html);
 
