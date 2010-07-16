@@ -10,7 +10,7 @@ namespace LinqToHtml.Tests
 	public class HTMLDocumentTests
 	{
 		[TestFixture]
-		public class When_asked_for_all_descendant_tags
+		public class When_asked_for_its_descendant_tags
 		{
 			private int _expectedTagCount;
 			private string _html;
@@ -21,7 +21,7 @@ namespace LinqToHtml.Tests
 			{
 				Test.Verify(
 					with_a_basic_html_document,
-					when_asked_for_all_descendant_tags,
+					when_asked_for_its_descendant_tags,
 					should_not_return_null,
 					should_not_return_an_empty_list,
 					should_return_the_correct_number_of_tags,
@@ -43,7 +43,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_body_tag()
 			{
-				_result.Single(x => x.Name == "body");
+				_result.Single(x => x.Type == "body");
 			}
 
 			private void should_return_the_correct_number_of_tags()
@@ -53,24 +53,24 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_head_tag()
 			{
-				_result.Single(x => x.Name == "head");
+				_result.Single(x => x.Type == "head");
 			}
 
 			private void should_return_the_title_tag()
 			{
-				_result.Single(x => x.Name == "title");
+				_result.Single(x => x.Type == "title");
 			}
 
-			private void when_asked_for_all_descendant_tags()
+			private void when_asked_for_its_descendant_tags()
 			{
 				_result = HTMLParser.Parse(_html)
-					.AllDescendantTags.ToList();
+					.DescendantTags.ToList();
 			}
 
 			private void with_a_basic_html_document()
 			{
 				_html = "<html><head><title>The Title</title></head><body>Hello World</body></html>";
-				_expectedTagCount = 4; // html, head, title, body
+				_expectedTagCount = 3; // head, title, body
 			}
 		}
 
@@ -109,7 +109,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_BODY_tag()
 			{
-				_result.NameEqualsIgnoreCase("BODY").ShouldBeTrue();
+				_result.TypeEqualsIgnoreCase("BODY").ShouldBeTrue();
 			}
 
 			private void when_asked_for_the_BODY_tag()
@@ -163,7 +163,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_HEAD_tag()
 			{
-				_result.NameEqualsIgnoreCase("HEAD").ShouldBeTrue();
+				_result.TypeEqualsIgnoreCase("HEAD").ShouldBeTrue();
 			}
 
 			private void when_asked_for_the_HEAD_tag()

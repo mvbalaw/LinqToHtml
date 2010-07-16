@@ -6,14 +6,13 @@ namespace LinqToHtml
 {
 	public class HTMLDocument : HTMLTag
 	{
-		public const string DefaultName = "#document";
 		private HTMLTag _body;
 		private bool _fetchedBody;
 		private bool _fetchedHead;
 		private HTMLTag _head;
 
 		public HTMLDocument(XmlDocument document)
-			: base(document)
+			: base(document.FirstChild)
 		{
 			DocType = document.DocumentType;
 		}
@@ -26,7 +25,7 @@ namespace LinqToHtml
 				{
 					var source = GetSource();
 
-					_body = source.FirstOrDefault(x => x.NameEqualsIgnoreCase("body"));
+					_body = source.OfType("body").IgnoreCase().FirstOrDefault();
 					_fetchedBody = true;
 				}
 				return _body;
@@ -42,7 +41,7 @@ namespace LinqToHtml
 				if (!_fetchedHead)
 				{
 					var source = GetSource();
-					_head = source.FirstOrDefault(x => x.NameEqualsIgnoreCase("head"));
+					_head = source.OfType("head").IgnoreCase().FirstOrDefault();
 					_fetchedHead = true;
 				}
 				return _head;
@@ -52,14 +51,10 @@ namespace LinqToHtml
 		private IEnumerable<HTMLTag> GetSource()
 		{
 			IEnumerable<HTMLTag> source = new[] { this };
-			if (this.NameEqualsIgnoreCase(DefaultName))
+			if (source.Count() == 1 &&
+			    source.First().TypeEqualsIgnoreCase("html"))
 			{
-				source = ChildTags;
-				if (source.Count() == 1 &&
-				    source.First().NameEqualsIgnoreCase("html"))
-				{
-					source = source.First().ChildTags;
-				}
+				source = source.First().ChildTags;
 			}
 			return source;
 		}

@@ -59,6 +59,8 @@
     <Compile Include="HTMLTagAttributeTests.cs" />
     <Compile Include="HTMLTagExtensionsTests.cs" />
     <Compile Include="HTMLTagTests.cs" />
+    <Compile Include="HTMLTagTypeFilterTests.cs" />
+    <Compile Include="IEnumerableHTMLTagExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

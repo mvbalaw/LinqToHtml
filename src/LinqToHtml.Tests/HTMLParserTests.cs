@@ -9,7 +9,7 @@ namespace LinqToHtml.Tests
 		[TestFixture]
 		public class When_asked_to_parse_an_HTML_string
 		{
-			private string _expectedName;
+			private string _expectedType;
 			private string _html;
 			private HTMLTag _result;
 
@@ -20,7 +20,7 @@ namespace LinqToHtml.Tests
 					with_a_basic_html_document,
 					when_asked_to_parse_the_string,
 					should_not_return_null,
-					should_return_an_html_document_with_the_correct_Name
+					should_return_an_html_document_with_the_correct_Type
 					);
 			}
 
@@ -29,9 +29,9 @@ namespace LinqToHtml.Tests
 				_result.ShouldNotBeNull();
 			}
 
-			private void should_return_an_html_document_with_the_correct_Name()
+			private void should_return_an_html_document_with_the_correct_Type()
 			{
-				_result.Name.ShouldBeEqualTo(_expectedName);
+				_result.Type.ShouldBeEqualTo(_expectedType);
 			}
 
 			private void when_asked_to_parse_the_string()
@@ -42,7 +42,7 @@ namespace LinqToHtml.Tests
 			private void with_a_basic_html_document()
 			{
 				_html = "<html><head><title>The Title</title></head><body>Hello World</body></html>";
-				_expectedName = HTMLDocument.DefaultName;
+				_expectedType = "html";
 			}
 		}
 	}

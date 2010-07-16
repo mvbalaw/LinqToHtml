@@ -6,7 +6,7 @@ namespace LinqToHtml
 	{
 		public static bool NameEqualsIgnoreCase(this HTMLTagAttribute attribute, string name)
 		{
-			return String.Compare(attribute.Name, name, true) == 0;
+			return String.Equals(attribute.Name, name, StringComparison.InvariantCultureIgnoreCase);
 		}
 	}
 }

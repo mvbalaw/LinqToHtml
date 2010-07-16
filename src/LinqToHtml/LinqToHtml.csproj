@@ -51,6 +51,8 @@
     <Compile Include="HTMLTagAttribute.cs" />
     <Compile Include="HTMLTagAttributeExtensions.cs" />
     <Compile Include="HTMLTagExtensions.cs" />
+    <Compile Include="HTMLTagTypeFilter.cs" />
+    <Compile Include="IEnumerableHTMLTagExtensions.cs" />
     <Compile Include="IEnumerableXmlNodeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlNodeListExtensions.cs" />

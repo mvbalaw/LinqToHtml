@@ -58,7 +58,6 @@ namespace LinqToHtml.Tests
 			private void when_asked_if_its_name_equals_ignore_case()
 			{
 				_result = HTMLParser.Parse("<body " + _attributeName + "='foo' />")
-					.ChildTags.First()
 					.Attributes.First().NameEqualsIgnoreCase(_name);
 			}
 

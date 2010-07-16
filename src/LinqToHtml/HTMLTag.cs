@@ -13,24 +13,6 @@ namespace LinqToHtml
 			_node = node;
 		}
 
-		public IEnumerable<HTMLTag> AllDescendantTags
-		{
-			get
-			{
-				if (!_node.HasChildNodes)
-				{
-					yield break;
-				}
-
-				var xmlNodes = _node.ChildXmlNodes();
-				var allXmlNodes = xmlNodes.Flatten();
-
-				foreach (var tag in allXmlNodes.Select(item => new HTMLTag(item)))
-				{
-					yield return tag;
-				}
-			}
-		}
 		public IEnumerable<HTMLTagAttribute> Attributes
 		{
 			get
@@ -65,7 +47,36 @@ namespace LinqToHtml
 			}
 		}
 
-		public string Name
+		public string Content
+		{
+			get { return _node.InnerText; }
+		}
+
+		public IEnumerable<HTMLTag> DescendantTags
+		{
+			get
+			{
+				if (!_node.HasChildNodes)
+				{
+					yield break;
+				}
+
+				var xmlNodes = _node.ChildXmlNodes();
+				var allXmlNodes = xmlNodes.Flatten();
+
+				foreach (var tag in allXmlNodes.Select(item => new HTMLTag(item)))
+				{
+					yield return tag;
+				}
+			}
+		}
+
+		public HTMLTag Parent
+		{
+			get { return new HTMLTag(_node.ParentNode); }
+		}
+
+		public string Type
 		{
 			get { return _node.Name; }
 		}
