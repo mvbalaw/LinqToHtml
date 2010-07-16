@@ -50,6 +50,7 @@
     <Compile Include="HTMLTag.cs" />
     <Compile Include="HTMLTagAttribute.cs" />
     <Compile Include="HTMLTagAttributeExtensions.cs" />
+    <Compile Include="HTMLTagAttributeNameFilter.cs" />
     <Compile Include="HTMLTagExtensions.cs" />
     <Compile Include="HTMLTagTypeFilter.cs" />
     <Compile Include="IEnumerableHTMLTagExtensions.cs" />

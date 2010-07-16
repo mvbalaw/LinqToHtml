@@ -8,5 +8,10 @@ namespace LinqToHtml
 		{
 			return new HTMLTagTypeFilter(items, type);
 		}
+
+		public static HTMLTagAttributeNameFilter WithAttributeNamed(this IEnumerable<HTMLTag> items, string attributeName)
+		{
+			return new HTMLTagAttributeNameFilter(items, attributeName);
+		}
 	}
 }

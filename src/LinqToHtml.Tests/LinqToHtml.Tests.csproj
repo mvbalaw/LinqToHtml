@@ -56,6 +56,7 @@
     <Compile Include="HTMLDocumentTests.cs" />
     <Compile Include="HTMLParserTests.cs" />
     <Compile Include="HTMLTagAttributeExtensionsTests.cs" />
+    <Compile Include="HTMLTagAttributeNameFilterTests.cs" />
     <Compile Include="HTMLTagAttributeTests.cs" />
     <Compile Include="HTMLTagExtensionsTests.cs" />
     <Compile Include="HTMLTagTests.cs" />
