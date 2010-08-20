@@ -76,6 +76,11 @@ namespace LinqToHtml
 			get { return new HTMLTag(_node.ParentNode); }
 		}
 
+		public string RawContent
+		{
+			get { return _node.InnerXml; }
+		}
+
 		public string Type
 		{
 			get { return _node.Name; }

@@ -155,6 +155,8 @@ namespace LinqToHtml.Tests
 		[TestFixture]
 		public class When_asked_for_its_content
 		{
+			private const string TitleHtml = "The &lt;&amp;&gt; Title";
+			private const string TitleText = "The <&> Title";
 			private string _result;
 			private HTMLTag _tag;
 
@@ -176,7 +178,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_content()
 			{
-				_result.ShouldBeEqualTo("The Title");
+				_result.ShouldBeEqualTo(TitleText);
 			}
 
 			private void when_asked_for_its_content()
@@ -186,7 +188,7 @@ namespace LinqToHtml.Tests
 
 			private void with_a_tag_that_has_content()
 			{
-				const string html = "<html><head><title>The Title</title></head><body>Hello World</body></html>";
+				const string html = "<html><head><title>" + TitleHtml + "</title></head><body>Hello World</body></html>";
 				_tag = HTMLParser.Parse(html)
 					.DescendantTags
 					.OfType("title")
@@ -294,6 +296,49 @@ namespace LinqToHtml.Tests
 			private void with_a_tag_that_has_a_parent()
 			{
 				const string html = "<html><head><title>The Title</title></head><body>Hello World</body></html>";
+				_tag = HTMLParser.Parse(html)
+					.DescendantTags
+					.OfType("title")
+					.First();
+			}
+		}
+
+		[TestFixture]
+		public class When_asked_for_its_raw_content
+		{
+			private const string TitleHtml = "The &lt;&amp;&gt; Title";
+			private string _result;
+			private HTMLTag _tag;
+
+			[Test]
+			public void Given_a_tag_that_has_content()
+			{
+				Test.Verify(
+					with_a_tag_that_has_content,
+					when_asked_for_its_raw_content,
+					should_not_return_null,
+					should_return_the_raw_content
+					);
+			}
+
+			private void should_not_return_null()
+			{
+				_result.ShouldNotBeNull();
+			}
+
+			private void should_return_the_raw_content()
+			{
+				_result.ShouldBeEqualTo(TitleHtml);
+			}
+
+			private void when_asked_for_its_raw_content()
+			{
+				_result = _tag.RawContent;
+			}
+
+			private void with_a_tag_that_has_content()
+			{
+				const string html = "<html><head><title>" + TitleHtml + "</title></head><body>Hello World</body></html>";
 				_tag = HTMLParser.Parse(html)
 					.DescendantTags
 					.OfType("title")
