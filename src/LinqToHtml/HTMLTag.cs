@@ -71,6 +71,19 @@ namespace LinqToHtml
 			}
 		}
 
+	    public string this [string key]
+	    {
+	        get
+	        {
+	            var child = ChildTags.FirstOrDefault(x => x.Type == key);
+                if (child == null)
+                {
+                    return null;
+                }
+	            return child.Content;
+	        }
+	    }
+
 		public HTMLTag Parent
 		{
 			get { return new HTMLTag(_node.ParentNode); }
