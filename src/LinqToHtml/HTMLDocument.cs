@@ -12,7 +12,7 @@ namespace LinqToHtml
 		private HTMLTag _head;
 
 		public HTMLDocument(XmlDocument document)
-			: base(document.FirstChild)
+			: base(document.DocumentElement)
 		{
 			DocType = document.DocumentType;
 		}

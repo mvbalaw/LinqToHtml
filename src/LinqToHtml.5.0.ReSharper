@@ -1,0 +1,6 @@
+<Configuration>
+  <CodeStyleSettings>
+    <ExternalPath>D:\data\projects\csharp\lib\FluentAssert\src\ReSharper 5.0 Code Styles.xml</ExternalPath>
+    <Sharing>EXTERNAL</Sharing>
+  </CodeStyleSettings>
+</Configuration>
