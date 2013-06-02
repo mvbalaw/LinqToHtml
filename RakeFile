@@ -17,7 +17,6 @@ beginning = Time.now
 default_settings = { :artifacts => ARTIFACTS, 
 					 :compile_target => COMPILE_TARGET,
 					 :stage => STAGE
-					 
 					}
 
 def read_config(settings_directory, env)
