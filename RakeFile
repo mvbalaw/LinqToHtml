@@ -75,7 +75,7 @@ end
 desc "Copy build artifacts to the staging folder"
 task :copy_artifacts => [:build] do
   puts "Copying files from bin folders to the build folder (#{settings[:stage]})..."
-  copy_output_files "src/#{PRODUCT_NAME}.Core/bin/#{settings[:compile_target]}", "*.{dll,pdb,exe}", settings[:stage]
+  copy_output_files "src/#{PRODUCT_NAME}/bin/#{settings[:compile_target]}", "*.{dll,pdb,exe}", settings[:stage]
   copy_output_files "src/#{PRODUCT_NAME}.Tests/bin/#{settings[:compile_target]}", "*.{dll,pdb,exe}", settings[:stage]
 end
 
@@ -106,7 +106,6 @@ zip :archive do |zip|
   zip.output_path = [settings[:artifacts]]
   puts "Artifacts are available in the artifact folder: #{settings[:artifacts]}"
 end
-
 
 def copy_output_files(fromDir, filePattern, outDir)
   Dir.glob(File.join(fromDir, filePattern)){|file| 		
