@@ -45,6 +45,7 @@ namespace LinqToHtml.Tests
 			{
 				var xmlDocument = new XmlDocument();
 				xmlDocument.LoadXml("<node datetime='now' />");
+// ReSharper disable once PossibleNullReferenceException
 				_attribute = xmlDocument.FirstChild.Attributes[0];
 				_expectedName = "datetime";
 			}
@@ -87,6 +88,7 @@ namespace LinqToHtml.Tests
 			{
 				var xmlDocument = new XmlDocument();
 				xmlDocument.LoadXml("<node datetime='now' />");
+// ReSharper disable once PossibleNullReferenceException
 				_attribute = xmlDocument.FirstChild.Attributes[0];
 				_expectedValue = "now";
 			}

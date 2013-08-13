@@ -8,72 +8,72 @@ namespace LinqToHtml
 	public class PropertySetter
 	{
 		public static readonly PropertySetter Boolean = new PropertySetter(typeof(bool), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					bool value = Convert.ToBoolean(v);
-					p.SetValue(d, value, null);
-				}
-				catch
-				{
-				}
-			});
+				var value = Convert.ToBoolean(v);
+				p.SetValue(d, value, null);
+			}
+			catch
+			{
+			}
+		});
 		public static readonly PropertySetter DateTime = new PropertySetter(typeof(DateTime), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					var value = Convert.ToDateTime(v);
-					p.SetValue(d, value, null);
-				}
-				catch
-				{
-				}
-			});
+				var value = Convert.ToDateTime(v);
+				p.SetValue(d, value, null);
+			}
+			catch
+			{
+			}
+		});
 		public static readonly PropertySetter Decimal = new PropertySetter(typeof(decimal), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					decimal value = Convert.ToDecimal(v);
-					p.SetValue(d, value, null);
-				}
-				catch
-				{
-				}
-			});
+				var value = Convert.ToDecimal(v);
+				p.SetValue(d, value, null);
+			}
+			catch
+			{
+			}
+		});
 		public static readonly PropertySetter Default = new PropertySetter(typeof(object), (d, p, v) => { });
 		public static readonly PropertySetter Double = new PropertySetter(typeof(double), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					double value = Convert.ToDouble(v);
-					p.SetValue(d, value, null);
-				}
-				catch
-				{
-				}
-			});
+				var value = Convert.ToDouble(v);
+				p.SetValue(d, value, null);
+			}
+			catch
+			{
+			}
+		});
 		public static readonly PropertySetter Int = new PropertySetter(typeof(int), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					int value = Convert.ToInt32(v);
-					p.SetValue(d, value, null);
-				}
-				catch
-				{
-				}
-			});
+				var value = Convert.ToInt32(v);
+				p.SetValue(d, value, null);
+			}
+			catch
+			{
+			}
+		});
 		private static readonly IList<PropertySetter> PropertySetters = new List<PropertySetter>();
 		public static readonly PropertySetter String = new PropertySetter(typeof(string), (d, p, v) =>
+		{
+			try
 			{
-				try
-				{
-					p.SetValue(d, v, null);
-				}
-				catch
-				{
-				}
-			});
+				p.SetValue(d, v, null);
+			}
+			catch
+			{
+			}
+		});
 
 		private readonly Type _type;
 

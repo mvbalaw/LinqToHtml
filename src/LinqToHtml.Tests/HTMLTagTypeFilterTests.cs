@@ -53,9 +53,9 @@ namespace LinqToHtml.Tests
 
 			private void should_return_only_the_matching_tags()
 			{
-				var enumerable = _result.Select(x => x.Type).Distinct();
-				enumerable.Count().ShouldBeEqualTo(1);
-				enumerable.First().ShouldBeEqualTo(_type);
+				var list = _result.Select(x => x.Type).Distinct().ToList();
+				list.Count.ShouldBeEqualTo(1);
+				list.First().ShouldBeEqualTo(_type);
 			}
 
 			private void when_asked_to_get_the_tags_for_the_requested_type()
@@ -117,9 +117,9 @@ namespace LinqToHtml.Tests
 
 			private void should_return_only_the_matching_tags_ignoring_case()
 			{
-				var enumerable = _result.Select(x => x.Type).Distinct();
-				enumerable.Count().ShouldBeEqualTo(1);
-				string type = enumerable.First();
+				var list = _result.Select(x => x.Type).Distinct().ToList();
+				list.Count.ShouldBeEqualTo(1);
+				var type = list.First();
 				String.Equals(type, _type, StringComparison.InvariantCultureIgnoreCase).ShouldBeTrue();
 			}
 

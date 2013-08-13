@@ -53,6 +53,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_city_attribute()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.NameEqualsIgnoreCase("city"));
 			}
 
@@ -63,11 +64,13 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_state_attribute()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.NameEqualsIgnoreCase("state"));
 			}
 
 			private void should_return_the_street_attribute()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.NameEqualsIgnoreCase("street"));
 			}
 
@@ -126,6 +129,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_body_tag()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.Type == "body");
 			}
 
@@ -136,6 +140,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_head_tag()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.Type == "head");
 			}
 
@@ -230,6 +235,7 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_body_tag()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.Type == "body");
 			}
 
@@ -240,11 +246,13 @@ namespace LinqToHtml.Tests
 
 			private void should_return_the_head_tag()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.Type == "head");
 			}
 
 			private void should_return_the_title_tag()
 			{
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 				_result.Single(x => x.Type == "title");
 			}
 
