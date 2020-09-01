@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToHtml", "LinqToHtml\LinqToHtml.csproj", "{1CF4772C-76D3-4833-B383-253785866946}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToHtml.Tests", "LinqToHtml.Tests\LinqToHtml.Tests.csproj", "{F5FFE912-0CB7-40F6-9D4D-A8370DCD5AC0}"
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E82509F-4364-4EF9-AC49-B66E163C861E}
 	EndGlobalSection
 EndGlobal
